@@ -1,0 +1,3 @@
+[submodule "Assets/paraphernalia"]
+	path = Assets/paraphernalia
+	url = git@bitbucket.org:Jwalker0827/paraphernalia.git
