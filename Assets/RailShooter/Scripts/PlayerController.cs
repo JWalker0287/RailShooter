@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController player;
+    public static Transform playerPos;
     public float xySpeed = 50;
     public float forwardpeed = 100;
     public float maxVelocityChange = 1;
@@ -14,16 +16,18 @@ public class PlayerController : MonoBehaviour
     Vector3 targetVelocity;
     ProjectileLauncher gun;
 
-    void Awake()
+    void Start()
     {
         anim = gameObject.GetComponent<Animator>();
         body = gameObject.GetComponent<Rigidbody>();
         gun = gameObject.GetComponentInChildren<ProjectileLauncher>();
+        if (player == null) player = this;
+        playerPos = transform;
     }
     void Update()
     {
-        float x = Input.GetAxisRaw("Horizontal");
-        float y = Input.GetAxisRaw("Vertical");
+        float x = Input.GetAxis("Horizontal");
+        float y = Input.GetAxis("Vertical");
         targetVelocity = new Vector3(x * xySpeed,-y * xySpeed, forwardpeed);
 
         Vector3 p = transform.position;
