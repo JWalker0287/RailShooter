@@ -38,11 +38,15 @@ public class RingController : MonoBehaviour
 
     void AddToCount()
     {
-        Debug.Log("Add To Count");
+        GameManager.game.ringsPassed++;
+        // Debug.Log("Add To Count");
+        // Debug.Log(GameManager.game.ringsPassed);
     }
 
     void ResetCount()
     {
-        Debug.Log("Reset Count");
+        GameManager.game.ringsPassed = 0;
+        // Debug.Log("Reset Count");
+        // Debug.Log(GameManager.game.ringsPassed);
     }
 }
