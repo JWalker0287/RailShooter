@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    //float lerpSpeed = 10;
+    float lerpSpeed = 10;
     public Vector3 offset = new Vector3(0,1,-10);
     public Transform player;
     public float minHeight = 5;
@@ -20,13 +20,19 @@ public class CameraController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector3 p = (player.position - initialPlayerPosition) * damping;
-        p.z = 0;
-        p = player.position + p + offset;
-        if (p.x > maxX) p.x = maxX;
-        else if (p.x < - maxX) p.x = -maxX;
-        if (p.y > maxHeight) p.y = maxHeight;
-        else if (p.y < minHeight) p.y = minHeight;
-        transform.position = p;
+        //Vector3 p = (player.position - initialPlayerPosition) * damping;
+        //p.z = 0;
+        // p = player.position + p + offset;
+        // if (p.x > maxX) p.x = maxX;
+        // else if (p.x < - maxX) p.x = -maxX;
+        // if (p.y > maxHeight) p.y = maxHeight;
+        // else if (p.y < minHeight) p.y = minHeight;
+        //transform.position = p;
+
+        transform.position = Vector3.Lerp(
+            transform.position,
+            player.position + offset,
+            Time.deltaTime * lerpSpeed
+        );
     }
 }

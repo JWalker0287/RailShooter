@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1865952902222231354}
   - component: {fileID: 3666097285446582872}
   - component: {fileID: 1969808579199924032}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,7 +64,7 @@ MonoBehaviour:
   recoveryTime: 0
   spawnInvincible: 0
   healOnEnable: 0
-  _maxHealth: 1
+  _maxHealth: 10
   destructionHealth: 0
 --- !u!54 &3666097285446582872
 Rigidbody:
@@ -95,11 +95,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: {x: 0, y: 0, z: 0}
-  outwardForce: 100
-  damage: 10
+  outwardForce: 50
+  damage: 5
   multiplier: 1
   disableOnCollision: 0
-  affectAncestor: 0
+  affectAncestor: 1
   allowRecovery: 1
   hitSoundName: 
   ignoreTags: []
@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 2611432265333379579}
   - component: {fileID: 2282184972064658904}
   - component: {fileID: 3606462668908874307}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -264,6 +264,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 1e6f251280deaba4b80f507e116c7912, type: 3}
       propertyPath: m_Name
       value: Building
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1e6f251280deaba4b80f507e116c7912, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e6f251280deaba4b80f507e116c7912, type: 3}

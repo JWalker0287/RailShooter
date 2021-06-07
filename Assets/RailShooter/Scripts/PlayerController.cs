@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     Vector3 targetVelocity;
     ProjectileLauncher gun;
 
-    void Start()
+    void Awake()
     {
         anim = gameObject.GetComponent<Animator>();
         body = gameObject.GetComponent<Rigidbody>();
@@ -26,8 +26,8 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        float x = Input.GetAxis("Horizontal");
-        float y = Input.GetAxis("Vertical");
+        float x = Input.GetAxisRaw("Horizontal");
+        float y = Input.GetAxisRaw("Vertical");
         targetVelocity = new Vector3(x * xySpeed,-y * xySpeed, forwardpeed);
 
         Vector3 p = transform.position;

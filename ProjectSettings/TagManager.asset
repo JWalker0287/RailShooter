@@ -14,9 +14,9 @@ TagManager:
   - Player
   - PlayerBullets
   - EnemyBullets
-  - 
-  - 
-  - 
+  - Enemies
+  - Buildings
+  - Ground
   - 
   - 
   - 

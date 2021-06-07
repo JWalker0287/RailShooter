@@ -7,12 +7,17 @@ public class MenuController : MonoBehaviour
 {
     void Start()
     {
-        
+        Time.timeScale = 1;
     }
 
-    public void Play(string name)
+    public void LoadScene(string name)
     {
         SceneManager.LoadScene(name);
+    }
+
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void Options()
