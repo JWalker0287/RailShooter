@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
 
     public void ReloadScene()
     {
-        StartCoroutine(LoadScene("Training"));
+        StartCoroutine(LoadScene(SceneManager.GetActiveScene().name));
     }
 
     IEnumerator LoadScene(string name)

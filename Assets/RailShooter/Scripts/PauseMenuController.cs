@@ -5,6 +5,10 @@ using UnityEngine;
 public class PauseMenuController : MonoBehaviour
 {
     public GameObject pauseRoot;
+    void Start()
+    {
+        pauseRoot.SetActive(false);
+    }
     public void PauseResume()
     {
         pauseRoot.SetActive(!pauseRoot.activeSelf);
