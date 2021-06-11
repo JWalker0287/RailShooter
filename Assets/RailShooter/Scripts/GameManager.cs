@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -9,6 +10,7 @@ public class GameManager : MonoBehaviour
     public static GameManager game;
     public Text ringText;
     public int ringsPassed = 0;
+    public GameObject deathScreen;
     public Text killText;
     int killCount = 0;
     public Image healthBar;
@@ -17,16 +19,27 @@ public class GameManager : MonoBehaviour
     {
         if (game == null)game = this;
         Time.timeScale = 1;
+        deathScreen.SetActive(false);
+        playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthController>();
     }
 
     void OnEnable()
     {
         HealthController.onAnyDeath += DeathCallback;
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     void OnDisable()
     {
         HealthController.onAnyDeath -= DeathCallback;
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+    
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        deathScreen.SetActive(false);
+        Time.timeScale = 1;
+        playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthController>();
     }
 
     void Update()
@@ -46,16 +59,21 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Training");
     }
 
-    void DeathCallback(HealthController enemy)
+    void DeathCallback(HealthController health)
     {
-        if (enemy.gameObject.CompareTag("Enemies"))
+        if (health.gameObject.CompareTag("Enemies"))
         {
             killCount ++;
             killText.text = killCount.ToString("000");
+            return;
         }
-        else if (enemy.gameObject.CompareTag("Player"))
+
+        PlayerController player = health.GetComponent<PlayerController>();
+
+        if (player != null)
         {
-            //death screen
+            deathScreen.SetActive(true);
+            EventSystem.current.SetSelectedGameObject(deathScreen.transform.GetChild(0).gameObject);
         }
     }
 }
