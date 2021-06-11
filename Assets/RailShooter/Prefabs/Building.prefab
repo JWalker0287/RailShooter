@@ -51,7 +51,7 @@ MonoBehaviour:
   damageSoundName: 
   deathSoundName: 
   resurectionSoundName: 
-  destructionSoundName: 
+  destructionSoundName: synthetic_explosion_1
   damageParticlesName: 
   deathParticlesName: 
   destructionParticlesName: BigExplode

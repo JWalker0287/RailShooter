@@ -156,7 +156,7 @@ MonoBehaviour:
   gunVelocityDamping: 0.1
   particles: {fileID: 0}
   audioMixerName: 
-  onFireAudioClipName: 
+  onFireAudioClipName: retro_laser_01
   onHitAudioClipName: 
   audioSpatialBlend: 0
   screenSpacePan: 0

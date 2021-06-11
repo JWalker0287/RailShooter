@@ -68,7 +68,7 @@ GameObject:
   - component: {fileID: 5187562557607623397}
   m_Layer: 9
   m_Name: Turret
-  m_TagString: Untagged
+  m_TagString: Enemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,7 +104,7 @@ MonoBehaviour:
   damageSoundName: 
   deathSoundName: 
   resurectionSoundName: 
-  destructionSoundName: 
+  destructionSoundName: synthetic_explosion_1
   damageParticlesName: 
   deathParticlesName: 
   destructionParticlesName: Explode

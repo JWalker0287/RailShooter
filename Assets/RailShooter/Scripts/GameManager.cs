@@ -6,9 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public int ringsPassed = 0;
     public static GameManager game;
     public Text ringText;
+    public int ringsPassed = 0;
+    public Text killText;
+    int killCount = 0;
     public Image healthBar;
     public HealthController playerHealth;
     void Awake()
@@ -16,9 +18,20 @@ public class GameManager : MonoBehaviour
         if (game == null)game = this;
         Time.timeScale = 1;
     }
+
+    void OnEnable()
+    {
+        HealthController.onAnyDeath += DeathCallback;
+    }
+
+    void OnDisable()
+    {
+        HealthController.onAnyDeath -= DeathCallback;
+    }
+
     void Update()
     {
-        ringText.text = ringsPassed.ToString();
+        ringText.text = ringsPassed.ToString("000");
         healthBar.fillAmount = playerHealth.healthPct;
     }
 
@@ -31,6 +44,18 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
         SceneManager.LoadScene("Training");
+    }
 
+    void DeathCallback(HealthController enemy)
+    {
+        if (enemy.gameObject.CompareTag("Enemies"))
+        {
+            killCount ++;
+            killText.text = killCount.ToString("000");
+        }
+        else if (enemy.gameObject.CompareTag("Player"))
+        {
+            //death screen
+        }
     }
 }

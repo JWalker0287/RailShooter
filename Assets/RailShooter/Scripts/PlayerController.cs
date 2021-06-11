@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody body;
     Vector3 targetVelocity;
     ProjectileLauncher gun;
+    Projectile bomb;
 
     void Awake()
     {
@@ -23,6 +24,8 @@ public class PlayerController : MonoBehaviour
         gun = gameObject.GetComponentInChildren<ProjectileLauncher>();
         if (player == null) player = this;
         playerPos = transform;
+        bomb = GetComponentInChildren<Projectile>();
+        bomb.gameObject.SetActive(false);
     }
     void Update()
     {
@@ -42,7 +45,16 @@ public class PlayerController : MonoBehaviour
         anim.SetFloat("X", x);
         anim.SetFloat("Y", y);
 
-        if (Input.GetButton("Fire1")) gun.Shoot(gun.transform.forward, body.velocity);
+        if (!bomb.gameObject.activeSelf && Input.GetButton("Fire1"))
+        {
+             gun.Shoot(gun.transform.forward, body.velocity);
+        }
+        else if (Input.GetButton("Fire2"))
+        {
+            bomb.transform.SetParent(null);
+            bomb.transform.position = gun.transform.position;
+            bomb.Fire(gun.transform.forward, body.velocity);
+        }
     }
 
     void FixedUpdate()
