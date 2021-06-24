@@ -348,7 +348,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   force: {x: 0, y: 0, z: 0}
   outwardForce: 0
-  damage: 4
+  damage: 2
   multiplier: 1
   disableOnCollision: 0
   affectAncestor: 1
@@ -380,7 +380,7 @@ MonoBehaviour:
   gunVelocityDamping: 0.1
   particles: {fileID: 0}
   audioMixerName: 
-  onFireAudioClipName: weird_05
+  onFireAudioClipName: retro_laser_01
   onHitAudioClipName: 
   audioSpatialBlend: 0
   screenSpacePan: 0
@@ -621,7 +621,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 343c6c6e3459cc040b77c157c45ab638, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: fc7e364256c666b4eb696884f953bc5a, type: 2}
+      objectReference: {fileID: 2100000, guid: 9921ba52ac40eb047856a47d2cb13367, type: 2}
     - target: {fileID: 919132149155446097, guid: 343c6c6e3459cc040b77c157c45ab638, type: 3}
       propertyPath: m_Name
       value: Laser
@@ -707,7 +707,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 343c6c6e3459cc040b77c157c45ab638, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: fc7e364256c666b4eb696884f953bc5a, type: 2}
+      objectReference: {fileID: 2100000, guid: 9921ba52ac40eb047856a47d2cb13367, type: 2}
     - target: {fileID: 919132149155446097, guid: 343c6c6e3459cc040b77c157c45ab638, type: 3}
       propertyPath: m_Name
       value: Laser

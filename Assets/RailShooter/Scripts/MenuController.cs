@@ -10,6 +10,11 @@ public class MenuController : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    public void ToggleScreens(GameObject screen)
+    {
+        screen.gameObject.SetActive(!screen.activeSelf);
+    }
+
     public void LoadScene(string name)
     {
         SceneManager.LoadScene(name);

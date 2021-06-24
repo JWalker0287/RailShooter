@@ -9,8 +9,7 @@ public class LevelEnd : MonoBehaviour
         float zDist = (transform.position.z - PlayerController.player.transform.position.z);
         if (zDist <= 0) 
         {
-            Debug.Log("Here");
-            GameManager.game.ReloadScene();
+            PlayerController.player.allRangeMode = true;
             
         }
     }

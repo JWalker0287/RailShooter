@@ -1,15 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Paraphernalia.Extensions;
 
 public class CameraController : MonoBehaviour
 {
-    float lerpSpeed = 10;
+    public float lerpSpeed = 30;
     public Vector3 offset = new Vector3(0,1,-10);
     public Transform player;
-    public float minHeight = 5;
-    public float maxHeight = 20;
-    public float maxX = 20;
     Vector3 initialPlayerPosition;
     public float damping = 0.9f;
 
@@ -18,21 +16,24 @@ public class CameraController : MonoBehaviour
        initialPlayerPosition = player.position; 
     }
 
+    #if UNITY_EDITOR
+    void Update()
+    {
+        if (!Application.isPlaying) transform.position = player.position + offset;
+    }
+    #endif
+
     void FixedUpdate()
     {
-        //Vector3 p = (player.position - initialPlayerPosition) * damping;
-        //p.z = 0;
-        // p = player.position + p + offset;
-        // if (p.x > maxX) p.x = maxX;
-        // else if (p.x < - maxX) p.x = -maxX;
-        // if (p.y > maxHeight) p.y = maxHeight;
-        // else if (p.y < minHeight) p.y = minHeight;
-        //transform.position = p;
-
-        transform.position = Vector3.Lerp(
-            transform.position,
-            player.position + offset,
+        Vector3 off = player.right * offset.x + player.up * offset.y + player.forward * offset.z;
+        transform.position = Vector3.Lerp(transform.position,
+            player.position + off,
             Time.deltaTime * lerpSpeed
         );
+        Vector3 dir = PlayerController.player.farReticle.transform.position - transform.position;
+        transform.rotation = Quaternion.Slerp(
+         transform.rotation,
+         Quaternion.LookRotation(dir, Vector3.up), 
+         Time.deltaTime * lerpSpeed);
     }
 }

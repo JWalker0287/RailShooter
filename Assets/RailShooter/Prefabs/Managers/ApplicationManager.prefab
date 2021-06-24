@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4693677968054369853
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2544456989805243479}
+  - component: {fileID: 8410534019480089693}
+  - component: {fileID: 7220087962378785850}
+  - component: {fileID: 3595294987699935171}
+  m_Layer: 0
+  m_Name: ApplicationManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2544456989805243479
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4693677968054369853}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 20, z: -101.68}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8410534019480089693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4693677968054369853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4799d757408aa4fae8aaeb0348a48b9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reparentObjects: 1
+  prefabs:
+  - {fileID: 7936129817785556529, guid: e99e4c7d93e8a75429255a34058606d7, type: 3}
+  - {fileID: 3661980128834960450, guid: bfa815c5df0aa264b8ee1fd835c87158, type: 3}
+  - {fileID: 7457253564403729855, guid: 7e4b4be116f2c2246b15118e96fb563f, type: 3}
+  - {fileID: 4989882409245727783, guid: fab8296d3b9e3284998382bd7214ab09, type: 3}
+  - {fileID: 7457253564403729855, guid: f2b332db235b0b448af31f7dfd0d4411, type: 3}
+  - {fileID: 0}
+  poolStartSize: 10
+--- !u!114 &7220087962378785850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4693677968054369853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f5edc519ec214b54a796394844461cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  music: {fileID: 8300000, guid: c316d73e077e164479111a601616bbcb, type: 3}
+  autoStartMusic: 1
+  dontDestroyOnLoad: 1
+  clips:
+  - {fileID: 8300000, guid: 61be42e306c63f04b88f810844885416, type: 3}
+  - {fileID: 8300000, guid: bd15b9108de14ed43ab44b3f424e233e, type: 3}
+  - {fileID: 8300000, guid: 9e3c784f16f7a734d960e68631714226, type: 3}
+  - {fileID: 8300000, guid: c4ffb5f9792dffb4ba86a98bbfb92156, type: 3}
+  mixer: {fileID: 0}
+  mixerGroupPaths: []
+  musicGroupPath: Master/Music
+  sfxGroupPath: Master/SFX
+  sfxSourcesCount: 20
+  minPlayInterval: 0.01
+--- !u!114 &3595294987699935171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4693677968054369853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d920d5873b4674059951b048d3338e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particlePrefabs:
+  - {fileID: 3829722723486499140, guid: 83809d72eab6e534e8d4510dace6ab78, type: 3}
+  - {fileID: 5116681973941733407, guid: 5eb2014645d1030488b2e354785f26c3, type: 3}
+  poolSize: 15
