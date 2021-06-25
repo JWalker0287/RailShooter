@@ -64,6 +64,7 @@ GameObject:
   - component: {fileID: 2048031506039697961}
   - component: {fileID: 6559961399033241918}
   - component: {fileID: 2105475424158831498}
+  - component: {fileID: 9178365262392819518}
   m_Layer: 7
   m_Name: Missile
   m_TagString: Untagged
@@ -140,6 +141,27 @@ MonoBehaviour:
   onHitSpawnName: 
   onHitColor: {r: 1, g: 1, b: 1, a: 1}
   target: {fileID: 0}
+--- !u!114 &9178365262392819518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2546717264547825144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 101ae274168be4981a4abf1df610a69d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force: {x: 0, y: 0, z: 0}
+  outwardForce: 0
+  damage: 10
+  multiplier: 1
+  disableOnCollision: 0
+  affectAncestor: 1
+  allowRecovery: 0
+  hitSoundName: 
+  ignoreTags: []
 --- !u!1 &3446226482173378153
 GameObject:
   m_ObjectHideFlags: 0

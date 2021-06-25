@@ -7,10 +7,10 @@ public class ExplosionController : MonoBehaviour
     
     void OnEnable()
     {
-        GetComponent<Animator>().Play("BombExplode");
+        //GetComponent<Animator>().Play("BombExplode");
     }
     void ExplosionDone()
     {
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
     }
 }

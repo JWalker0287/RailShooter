@@ -12,16 +12,26 @@ public class PlayerController : MonoBehaviour
     public float maxHeight = 30;
     public float maxX = 30;
     public float targetRotation;
+    float lastShot;
     public bool allRangeMode = false;
+
     bool charging = false;
+    Transform lockTarget;
     public SpriteRenderer farReticle;
     public SpriteRenderer closeReticle;
+
+    Vector3 targetVelocity;
     Animator anim;
     Rigidbody body;
-    Vector3 targetVelocity;
-    ProjectileLauncher gun;
-    Projectile bomb;
+    public ProjectileLauncher gun;
+    //public Projectile bomb;
+    public Projectile chargeShot;
 
+    Camera cam;
+    void Start()
+    {
+        cam = Camera.main;
+    }
     void Awake()
     {
         anim = gameObject.GetComponent<Animator>();
@@ -29,8 +39,9 @@ public class PlayerController : MonoBehaviour
         gun = gameObject.GetComponentInChildren<ProjectileLauncher>();
         if (player == null) player = this;
         playerPos = transform;
-        bomb = GetComponentInChildren<Projectile>();
-        bomb.gameObject.SetActive(false);
+        chargeShot.gameObject.SetActive(false);
+        chargeShot.transform.SetParent(null);
+//        bomb.gameObject.SetActive(false);
     }
     void Update()
     {
@@ -38,8 +49,8 @@ public class PlayerController : MonoBehaviour
         float y = Input.GetAxis("Vertical");
         float z = forwardpeed;
 
-        farReticle.transform.up = Vector3.up;
-        closeReticle.transform.up = Vector3.up;
+        //farReticle.transform.up = Vector3.up;
+        //closeReticle.transform.up = Vector3.up;
         
         if(allRangeMode)
         {
@@ -70,18 +81,44 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
-             gun.Shoot(gun.transform.forward, body.velocity);
+            lastShot = Time.time;
+            gun.Shoot(gun.transform.forward, body.velocity);
+        }
+        else if (!charging && Input.GetButton("Fire1") && Time.time - lastShot > 0.5f)
+        {
+            charging = true;
+            StartCoroutine(ChargeShotCoroutine());
+        }
+        else if (Input.GetButtonUp("Fire1"))
+        {
+            StopCoroutine(ChargeShotCoroutine());
+            if (charging)
+            {
+                chargeShot.transform.position = gun.transform.position;
+                chargeShot.Fire(gun.transform.forward, body.velocity);
+                //chargeShot.target = lockTarget;
+                //lockTarget = null;
+            }
+            StopCharging();
         }
         else if (Input.GetButton("Fire2"))
         {
-            bomb.transform.SetParent(null);
-            bomb.transform.position = gun.transform.position;
-            bomb.Fire(gun.transform.forward, body.velocity);
+            //bomb.transform.SetParent(null);
+            //bomb.transform.position = gun.transform.position;
+            //bomb.Fire(gun.transform.forward, body.velocity);
         }
     }
-
+    void StopCharging()
+    {
+        StopCoroutine(ChargeShotCoroutine());
+        charging = false;
+        farReticle.color = Color.green;
+        closeReticle.color = Color.green;
+    }
     IEnumerator ChargeShotCoroutine()
     {
+        yield return new WaitForSeconds(0.5f);
+        charging = true;
         yield return new WaitForSeconds(0.5f);
         closeReticle.color = Color.yellow;
         farReticle.color = Color.red;
@@ -89,10 +126,30 @@ public class PlayerController : MonoBehaviour
         {
             for (float t = 0; t <= 0.5f; t += Time.deltaTime)
             {
-                farReticle.transform.localScale = Vector3.one * Mathf.Lerp(2, 1.5f, t/0.5f);
+                farReticle.transform.localScale = Vector3.one * Mathf.Lerp(8, 6, t/0.5f);
                 yield return new WaitForEndOfFrame();
+
+                // if (lockTarget == null)
+                // }
+                //     Vector3 pos = cam.WorldToScreenPoint(farReticle.transform.position);
+                //     Ray ray = cam.ScreenPointToRay(pos);
+                //     RaycastHit[] hits = Physics.SphereCastAll(ray, 5, 500);
+                //     for (int i = 0; i < hits.Length; i ++)
+                //     {
+                //         if (hits[i].rigidbody && hits[i].rigidbody.CompareTag("Enemy"))
+                //         {
+                //             lockTarget = hits[i].rigidbody.transform;
+                //             break;
+                //         }
+                //     }
+                // {
+                // else 
+                // {
+
+                // }
             }
         }
+        farReticle.transform.localScale = Vector3.one * 4;
     }
 
     void FixedUpdate()
