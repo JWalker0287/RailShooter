@@ -38491,7 +38491,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7532732347362709358, guid: 7a01d171a012d9d4889c963ff1c37613, type: 3}
       propertyPath: allRangeMode
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7532732347362709359, guid: 7a01d171a012d9d4889c963ff1c37613, type: 3}
       propertyPath: m_RootOrder

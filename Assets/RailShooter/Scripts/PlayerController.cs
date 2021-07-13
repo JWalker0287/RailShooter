@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
 
     Vector3 targetVelocity;
     Animator anim;
-    Rigidbody body;
+    public Rigidbody body;
     public ProjectileLauncher gun;
     //public Projectile bomb;
     public Projectile chargeShot;
@@ -51,7 +51,6 @@ public class PlayerController : MonoBehaviour
 
         //farReticle.transform.up = Vector3.up;
         //closeReticle.transform.up = Vector3.up;
-        
         if(allRangeMode)
         {
             targetVelocity = transform.right * x - Vector3.up * y * xySpeed + transform.forward * z;
@@ -63,7 +62,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            targetRotation = 0;
+            //targetRotation = 0;
             targetVelocity = new Vector3(x * xySpeed,-y * xySpeed, forwardpeed);
             Vector3 p = transform.position;
             if (p.x > maxX) p.x = maxX;
@@ -155,7 +154,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         transform.Rotate(Vector3.up * targetRotation * Time.fixedDeltaTime);
-
+    
         Vector3 velocityChange = targetVelocity - body.velocity;
         Vector2 xyChange = (Vector2)velocityChange;
 
