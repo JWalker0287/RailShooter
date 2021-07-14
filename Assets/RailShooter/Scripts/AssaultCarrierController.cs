@@ -15,7 +15,6 @@ public class AssaultCarrierController : MonoBehaviour
     }
     void Start()
     {
-        body.velocity = PlayerController.player.body.velocity;
     }
 
     void Update()
@@ -25,8 +24,8 @@ public class AssaultCarrierController : MonoBehaviour
 
     void FixedUpdate()
     {
-        //Vector3 movement = Vector3.forward * forwardSpeed;
+        Vector3 movement = PlayerController.player.body.velocity.z * Vector3.forward;
         //body.AddForce(movement, ForceMode.VelocityChange);
-        //body.velocity = PlayerController.player.body.velocity;
+        body.velocity = movement;
     }
 }

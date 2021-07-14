@@ -921,10 +921,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7532732347362709345, guid: 7a01d171a012d9d4889c963ff1c37613, type: 3}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 7532732347362709357, guid: 7a01d171a012d9d4889c963ff1c37613, type: 3}
       propertyPath: m_Name
       value: PlayerShip
       objectReference: {fileID: 0}
+    - target: {fileID: 7532732347362709358, guid: 7a01d171a012d9d4889c963ff1c37613, type: 3}
+      propertyPath: body
+      value: 
+      objectReference: {fileID: 1772163715}
     - target: {fileID: 7532732347362709358, guid: 7a01d171a012d9d4889c963ff1c37613, type: 3}
       propertyPath: allRangeMode
       value: 0
@@ -935,7 +943,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7532732347362709359, guid: 7a01d171a012d9d4889c963ff1c37613, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.44
+      value: 13.1
       objectReference: {fileID: 0}
     - target: {fileID: 7532732347362709359, guid: 7a01d171a012d9d4889c963ff1c37613, type: 3}
       propertyPath: m_LocalPosition.y
@@ -943,7 +951,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7532732347362709359, guid: 7a01d171a012d9d4889c963ff1c37613, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.22
+      value: 30.7
       objectReference: {fileID: 0}
     - target: {fileID: 7532732347362709359, guid: 7a01d171a012d9d4889c963ff1c37613, type: 3}
       propertyPath: m_LocalRotation.w
@@ -979,6 +987,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1527202982452503203, guid: 3116bf78580431c49b17542a5ca05983, type: 3}
   m_PrefabInstance: {fileID: 1145724111}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &1772163715 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 7532732347362709345, guid: 7a01d171a012d9d4889c963ff1c37613, type: 3}
+  m_PrefabInstance: {fileID: 1246934782}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1815824872
 GameObject:
