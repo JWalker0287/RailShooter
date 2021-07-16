@@ -52,7 +52,6 @@ MonoBehaviour:
   - {fileID: 7457253564403729855, guid: 7e4b4be116f2c2246b15118e96fb563f, type: 3}
   - {fileID: 4989882409245727783, guid: fab8296d3b9e3284998382bd7214ab09, type: 3}
   - {fileID: 7457253564403729855, guid: f2b332db235b0b448af31f7dfd0d4411, type: 3}
-  - {fileID: 0}
   poolStartSize: 10
 --- !u!114 &7220087962378785850
 MonoBehaviour:
